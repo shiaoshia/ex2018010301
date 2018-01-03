@@ -63,4 +63,39 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /*
+    public void click02(View v) {
+        sw.setChecked(true);
+        //此方法在pb未顯示時即停止3秒鐘,然後就INVISIBLE,所以不能這樣寫
+        //pb.setVisibility(View.VISIBLE);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //pb.setVisibility(View.INVISIBLE);
+        sw.setChecked(false);
+    }
+    */
+    public void click02(View v) {
+        pb.setVisibility(View.VISIBLE);
+
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                try {
+                    Thread.sleep(3000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        pb.setVisibility(View.INVISIBLE);
+                    }
+                });
+            }
+        }.start();
+    }
 }
