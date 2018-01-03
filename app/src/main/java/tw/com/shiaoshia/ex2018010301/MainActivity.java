@@ -14,13 +14,15 @@ public class MainActivity extends AppCompatActivity {
 
     CheckBox chk1;
     Switch sw;
-    ProgressBar pb;
+    ProgressBar pb,pb2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         pb = (ProgressBar)findViewById(R.id.progressBar);
+        pb2 = (ProgressBar)findViewById(R.id.progressBar2);
         sw = (Switch)findViewById(R.id.switch1);
         chk1 = (CheckBox)findViewById(R.id.checkBox);
         chk1.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -98,4 +100,14 @@ public class MainActivity extends AppCompatActivity {
             }
         }.start();
     }
+
+    public void click04(View v) {
+
+        pb2.setProgress(pb2.getProgress()+10);
+    }
+
+    public void click03(View v) {
+        pb2.setProgress(pb2.getProgress()-10);
+    }
+
 }
