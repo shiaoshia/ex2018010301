@@ -1,5 +1,10 @@
 package tw.com.shiaoshia.ex2018010301;
+/*
+    RatingBar 大的用來評分,用戶用小的顯示,0~5(一次+0.5);
+    RatingBar 自制;
+    ProgressBar(Horizontal) 0~10(一次+1);
 
+ */
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
