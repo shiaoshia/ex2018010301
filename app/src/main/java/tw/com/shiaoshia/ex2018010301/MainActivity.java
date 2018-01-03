@@ -7,7 +7,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ProgressBar;
 import android.widget.RadioGroup;
+import android.widget.SeekBar;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -15,12 +17,16 @@ public class MainActivity extends AppCompatActivity {
     CheckBox chk1;
     Switch sw;
     ProgressBar pb,pb2;
+    SeekBar sb;
+    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        tv = (TextView)findViewById(R.id.textView);
+        sb = (SeekBar)findViewById(R.id.seekBar);
         pb = (ProgressBar)findViewById(R.id.progressBar);
         pb2 = (ProgressBar)findViewById(R.id.progressBar2);
         sw = (Switch)findViewById(R.id.switch1);
@@ -48,6 +54,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                tv.setText(String.valueOf(i));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 
     public void click01(View v) {
@@ -63,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this,"第三個按鈕",Toast.LENGTH_SHORT).show();
                 break;
         }
+        Toast.makeText(MainActivity.this,String.valueOf(sb.getProgress()),Toast.LENGTH_SHORT).show();
     }
 
     /*
